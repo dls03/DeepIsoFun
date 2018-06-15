@@ -1,0 +1,208 @@
+layer {
+  name: "source_data"
+  type: "HDF5Data"
+  top: "source_data"
+  top: "lp_label"
+  hdf5_data_param {
+    source: "examples/midann/data/source.txt"
+    batch_size: 200
+    shuffle: false
+  }
+}
+layer {
+  name: "source_domain_labels"
+  type: "DummyData"
+  top: "source_domain_labels"
+  dummy_data_param {
+    data_filler {
+      type: "constant"
+      value: 0.0
+    }
+    num: 200
+    channels: 1
+    height: 1
+    width: 1
+  }
+}
+layer {
+  name: "target_data"
+  type: "HDF5Data"
+  top: "target_data"
+  top: "lp_target_label"
+  top: "bag_target_label"
+  top: "instance_target_label"
+  hdf5_data_param {
+    source: "examples/midann/data/target.txt"
+    batch_size: 200
+    shuffle: false
+  }
+}
+layer {
+  name: "target_domain_labels"
+  type: "DummyData"
+  top: "target_domain_labels"
+  dummy_data_param {
+    data_filler {
+      type: "constant"
+      value: 1.0
+    }
+    num: 200
+    channels: 1
+    height: 1
+    width: 1
+  }
+}
+layer {
+  name: "data"
+  type: "Concat"
+  bottom: "source_data"
+  bottom: "target_data"
+  top: "data"
+  concat_param {
+    concat_dim: 0
+  }
+}
+layer {
+  name: "dc_label"
+  type: "Concat"
+  bottom: "source_domain_labels"
+  bottom: "target_domain_labels"
+  top: "dc_label"
+  concat_param {
+    concat_dim: 0
+  }
+}
+layer {
+  name: "ip1"
+  type: "InnerProduct"
+  bottom: "data"
+  top: "ip1"
+  inner_product_param {
+    num_output: 600
+    weight_filler {
+      type: "xavier"
+    }
+  }
+}
+layer {
+  name: "relu1"
+  type: "Sigmoid"
+  bottom: "ip1"
+  top: "ip1"
+}
+layer {
+  name: "ip2"
+  type: "InnerProduct"
+  bottom: "ip1"
+  top: "ip2"
+  inner_product_param {
+    num_output: 200
+    weight_filler {
+      type: "xavier"
+    }
+  }
+}
+layer {
+  name: "source_feature"
+  type: "Slice"
+  bottom: "ip2"
+  top: "source_feature"
+  top: "target_feature"
+  slice_param {
+    slice_dim: 0
+  }
+}
+layer {
+  name: "ip3"
+  type: "InnerProduct"
+  bottom: "source_feature"
+  top: "ip3"
+  inner_product_param {
+    num_output: 1
+    weight_filler {
+      type: "xavier"
+    }
+  }
+}
+layer {
+  name: "ip4"
+  type: "InnerProduct"
+  bottom: "target_feature"
+  top: "ip4"
+  inner_product_param {
+    num_output: 1
+    weight_filler {
+      type: "xavier"
+    }
+  }
+}
+layer {
+  name: "losslp"
+  type: "SigmoidCrossEntropyLoss"
+  bottom: "ip4"
+  bottom: "lp_target_label"
+  top: "losslp"
+}
+layer {
+  name: "losslps"
+  type: "SigmoidCrossEntropyLoss"
+  bottom: "ip3"
+  bottom: "lp_label"
+  top: "losslps"
+}
+layer {
+  name: "grl"
+  type: "GradientScaler"
+  bottom: "ip2"
+  top: "grl"
+  gradient_scaler_param {
+    lower_bound: 0.0
+  }
+}
+layer {
+  name: "ip11"
+  type: "InnerProduct"
+  bottom: "grl"
+  top: "ip11"
+  inner_product_param {
+    num_output: 300
+    weight_filler {
+      type: "xavier"
+    }
+  }
+}
+layer {
+  name: "relu11"
+  type: "Sigmoid"
+  bottom: "ip11"
+  top: "ip11"
+}
+layer {
+  name: "dropout11"
+  type: "Dropout"
+  bottom: "ip11"
+  top: "dropout11"
+  dropout_param {
+    dropout_ratio: 0.5
+  }
+}
+layer {
+  name: "ip12"
+  type: "InnerProduct"
+  bottom: "dropout11"
+  top: "ip12"
+  inner_product_param {
+    num_output: 1
+    weight_filler {
+      type: "xavier"
+    }
+  }
+}
+layer {
+  name: "lossdc"
+  type: "SigmoidCrossEntropyLoss"
+  bottom: "ip12"
+  bottom: "dc_label"
+  top: "lossdc"
+  loss_weight: 0.10000000149
+}
