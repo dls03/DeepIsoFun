@@ -30,13 +30,13 @@ Example: DeepIsoFun [Makefile.config]()
 - [Gradient revarsal layer cpp](https://github.com/ddtm/caffe/blob/grl/src/caffe/layers/gradient_scaler_layer.cpp) and 
 [Gradient revarsal layer cpp](https://github.com/ddtm/caffe/blob/grl/src/caffe/layers/gradient_scaler_layer.cu).
  We have used this layer from this paper (Ganin et al. 2015)(http://proceedings.mlr.press/v37/ganin15.pdf) </br>
-- [Multiple instance loss layer] () </br>
-- [Multiple instance loss layer] () </br>
-- [Multiple instance loss layer] () </br>
+- [Multiple instance loss layer] (https://github.com/dls03/DeepIsoFun/blob/master/Layers/MIloss.py) </br>
+- [LSE loss layer] (https://github.com/dls03/DeepIsoFun/blob/master/Layers/LSEloss.py) </br>
+- [GM loss layer] (https://github.com/dls03/DeepIsoFun/blob/master/Layers/GMloss.py) </br>
 Put these files into /caffe-master/src/caffe/layers/ </br>
-- [gradient_scaler_layer.hpp] () : Put these files into /caffe-master/include/caffe/layers/</br>
-- [layer.hpp] () : Put these files into /caffe-master/include/caffe/</br>
-- [messenger.hpp] () : Put these files into /caffe-master/include/caffe/ </br>
+- [gradient_scaler_layer.hpp] (https://github.com/dls03/DeepIsoFun/blob/master/Layers/gradient_scaler_layer.hpp) : Put these files into /caffe-master/include/caffe/layers/</br>
+- [layer.hpp] (https://github.com/dls03/DeepIsoFun/blob/master/Layers/layer.hpp) : Put these files into /caffe-master/include/caffe/</br>
+- [messenger.hpp] (https://github.com/dls03/DeepIsoFun/blob/master/Layers/messenger.hpp) : Put these files into /caffe-master/include/caffe/ </br>
 
 ##### Prerquired tools
 - [CUDA](https://developer.nvidia.com/cuda-zone) </br> 
@@ -59,22 +59,23 @@ Tips: Make sure you have compiled successfully everything mentioned above.
 	- [Isoform Expression Data] ()
 	- [Gene Expression Data] ()
 - ID Conversion 
-	- [Gene Isoform relations] () 
+	- [Gene Isoform relations] (https://github.com/dls03/DeepIsoFun/blob/master/Data/GeneIsoformNameNew) 
 - Get GO annotation for gene. </br>
-	- [GO Annotation] ()
+	- [GO Annotation] (https://github.com/dls03/DeepIsoFun/blob/master/Data/GeneAnnoNewH)
 - Get Gene Ontology Hierarchy file to get parent-child relationship of GO terms. </br>
-	- [GO Hierarchy] ()
+	- [GO Hierarchy] (http://www.geneontology.org/ontology/go-basic.obo)
 - GO set </br>
-	- [All GO] ()
-	- [GO slim] ()
+	- [All GO] (https://github.com/dls03/DeepIsoFun/blob/master/Data/go_6up)
+	- [GO slim] (https://github.com/dls03/DeepIsoFun/blob/master/Data/goslim.txt)
 - SRA files 
-	- [Final set of SRA files] ()
+	- [Final set of SRA files] (https://github.com/dls03/DeepIsoFun/blob/master/Data/sra_filter_final.txt)
 - Data Preprocessing
-	- [] ()
-	- [] ()
+	- [Download SRA Read File] (https://github.com/dls03/DeepIsoFun/blob/master/Preprocessing%20Tools/dw_SRAdata.R)
+	- [Run Kallisto to generate expression profile] (https://github.com/dls03/DeepIsoFun/blob/master/Preprocessing%20Tools/kalrun.R)
 	
 ### Run DeepIsoFun
-Run the script file [./runM.sh] ()
+Run the script file [./runM.sh] (https://github.com/dls03/DeepIsoFun/tree/master/DeepIsoFun)
+It will generate output prediction, AUC and AUPRC value for each GO term. 
 
 
 
