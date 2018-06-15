@@ -51,8 +51,8 @@ $ make all
 $ make test 
 $ make runtest
 ```
-<\br>
-Tips: Make sure you have compiled successfully everything mentioned above. 
+
+Tips: Make sure you have compiled caffe successfully.  
 
 ### Data
 - Expression profile of isoforms and genes.</br>
