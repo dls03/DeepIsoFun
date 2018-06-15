@@ -56,8 +56,8 @@ Tips: Make sure you have compiled successfully everything mentioned above.
 
 ### Data
 - Expression profile of isoforms and genes.</br>
-	- [Isoform Expression Data] ()
-	- [Gene Expression Data] ()
+	- [Isoform Expression Data] 
+	- [Gene Expression Data] 
 - ID Conversion 
 	- [Gene Isoform relations] (https://github.com/dls03/DeepIsoFun/blob/master/Data/GeneIsoformNameNew) 
 - Get GO annotation for gene. </br>
@@ -74,7 +74,7 @@ Tips: Make sure you have compiled successfully everything mentioned above.
 	- [Run Kallisto to generate expression profile] (https://github.com/dls03/DeepIsoFun/blob/master/Preprocessing%20Tools/kalrun.R)
 	
 ### Run DeepIsoFun
-Run the script file [./runM.sh] (https://github.com/dls03/DeepIsoFun/tree/master/DeepIsoFun)
+Run the script file `./runM.sh` (https://github.com/dls03/DeepIsoFun/tree/master/DeepIsoFun) </br>
 It will generate output prediction, AUC and AUPRC value for each GO term. 
 
 
