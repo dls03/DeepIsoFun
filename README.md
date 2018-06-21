@@ -7,11 +7,11 @@ Isoforms are mRNAs produced from the same gene locus by alternative splicing and
 
 ### Install Caffe 
 
-##### Download
+#### Download
 Download the master branch of [Caffe](http://caffe.berkeleyvision.org/) and compile it in your machine. See here for the [installation](http://caffe.berkeleyvision.org/installation.html) guide. </br>  
 For some systems current version of caffe might not work. You can try older [release](https://github.com/BVLC/caffe/releases).
 
-##### Makefile Adjustment
+#### Makefile Adjustment
 In Makefile.config file:</br>
 - `USE_CUDNN := 1` (uncomment to build with cuDNN) </br>
 - `CPU_ONLY := 1` (uncomment to build without GPU support) </br>
@@ -26,7 +26,7 @@ BLAS_LIB := /caffe/openblas/lib
 
 Example: DeepIsoFun [Makefile.config]()
 
-##### Include Layers
+#### Include Layers
 - [Gradient revarsal layer cpp](https://github.com/ddtm/caffe/blob/grl/src/caffe/layers/gradient_scaler_layer.cpp) and 
 [Gradient revarsal layer cpp](https://github.com/ddtm/caffe/blob/grl/src/caffe/layers/gradient_scaler_layer.cu).
  We have used this layer from this paper (Ganin et al. 2015)(http://proceedings.mlr.press/v37/ganin15.pdf) </br>
@@ -38,7 +38,7 @@ Put these files into /caffe-master/src/caffe/layers/ </br>
 - [layer.hpp] (https://github.com/dls03/DeepIsoFun/blob/master/Layers/layer.hpp) : Put these files into /caffe-master/include/caffe/</br>
 - [messenger.hpp] (https://github.com/dls03/DeepIsoFun/blob/master/Layers/messenger.hpp) : Put these files into /caffe-master/include/caffe/ </br>
 
-##### Prerquired tools
+#### Prerquired tools
 - [CUDA](https://developer.nvidia.com/cuda-zone) </br> 
 - [OpenBLAS](http://www.openblas.net/) </br> 
 - [OpenCV](https://opencv.org/) </br> 
@@ -52,12 +52,12 @@ $ make test
 $ make runtest
 ```
 
-Tips: Make sure you have compiled caffe successfully.  
+*Tips: Make sure you have included all the layers and compiled caffe successfully.*  
 
 ### Data
 - Expression profile of isoforms and genes.</br>
-	- [Isoform Expression Data] 
-	- [Gene Expression Data] 
+	- [Isoform Expression Data] (https://drive.google.com/file/d/17H6xmKVQBGNMwvhS939ZXIFLoaBhNEbU/view?usp=sharing)
+	- [Gene Expression Data] ()
 - ID Conversion 
 	- [Gene Isoform relations] (https://github.com/dls03/DeepIsoFun/blob/master/Data/GeneIsoformNameNew) 
 - Get GO annotation for gene. </br>
@@ -75,7 +75,7 @@ Tips: Make sure you have compiled caffe successfully.
 	
 ### Run DeepIsoFun
 Run the script file `./runM.sh` (https://github.com/dls03/DeepIsoFun/tree/master/DeepIsoFun) </br>
-It will generate output prediction, AUC and AUPRC value for each GO term. 
+It will generate output prediction, AUC and AUPRC value for each GO term. (https://github.com/dls03/DeepIsoFun/blob/master/Results/go_auc_auprc_deepisofun.txt) 
 
 
 
