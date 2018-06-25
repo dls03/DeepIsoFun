@@ -57,7 +57,7 @@ $ make runtest
 ### Data
 - Expression profile of isoforms and genes.</br>
 	- [Isoform Expression Data] (https://drive.google.com/file/d/17H6xmKVQBGNMwvhS939ZXIFLoaBhNEbU/view?usp=sharing)
-	- [Gene Expression Data] ()
+	- [Gene Expression Data] (https://drive.google.com/file/d/16CRGsmvCttTR1ov0qwBxxiF-EKpcoSNl/view?usp=sharing)
 - ID Conversion 
 	- [Gene Isoform relations] (https://github.com/dls03/DeepIsoFun/blob/master/Data/GeneIsoformNameNew) 
 - Get GO annotation for gene. </br>
