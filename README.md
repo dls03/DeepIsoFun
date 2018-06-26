@@ -8,11 +8,11 @@ Isoforms are mRNAs produced from the same gene locus by alternative splicing and
 ### Installation
 
 #### Download
-Download the master branch of [Caffe](http://caffe.berkeleyvision.org/) and compile it in your machine. See here for the [installation](http://caffe.berkeleyvision.org/installation.html) guide. </br>  
-For some systems current version of caffe might not work. You can try older [release](https://github.com/BVLC/caffe/releases).
+Download the master branch of [Caffe](http://caffe.berkeleyvision.org/) and compile it on your machine. See here for the [installation](http://caffe.berkeleyvision.org/installation.html) guide. </br>  
+For some systems, the current version of caffe might not work. You can try an older [release](https://github.com/BVLC/caffe/releases).
 
 #### Makefile Adjustment
-In Makefile.config file:</br>
+In the Makefile.config file:</br>
 - `USE_CUDNN := 1` (uncomment to build with cuDNN) </br>
 - `CPU_ONLY := 1` (uncomment to build without GPU support) </br>
 - `WITH_PYTHON_LAYER := 1` (uncomment to support layers written in Python) </br>
@@ -26,26 +26,26 @@ BLAS_LIB := /caffe/openblas/lib
 
 Example: DeepIsoFun [Makefile.config]()
 
-#### Include Layers
+#### Included Layers
 - [Gradient revarsal layer cpp](https://github.com/ddtm/caffe/blob/grl/src/caffe/layers/gradient_scaler_layer.cpp) and 
 [Gradient revarsal layer cpp](https://github.com/ddtm/caffe/blob/grl/src/caffe/layers/gradient_scaler_layer.cu).
- We have used this layer from this paper (Ganin et al. 2015)(http://proceedings.mlr.press/v37/ganin15.pdf) </br>
+ This layer is from the paper (Ganin et al. 2015)(http://proceedings.mlr.press/v37/ganin15.pdf) </br>
 - [Multiple instance loss layer] (https://github.com/dls03/DeepIsoFun/blob/master/Layers/MIloss.py) </br>
 - [LSE loss layer] (https://github.com/dls03/DeepIsoFun/blob/master/Layers/LSEloss.py) </br>
 - [GM loss layer] (https://github.com/dls03/DeepIsoFun/blob/master/Layers/GMloss.py) </br>
-Put these files into /caffe-master/src/caffe/layers/ </br>
-- [gradient_scaler_layer.hpp] (https://github.com/dls03/DeepIsoFun/blob/master/Layers/gradient_scaler_layer.hpp) : Put these files into /caffe-master/include/caffe/layers/</br>
-- [layer.hpp] (https://github.com/dls03/DeepIsoFun/blob/master/Layers/layer.hpp) : Put these files into /caffe-master/include/caffe/</br>
-- [messenger.hpp] (https://github.com/dls03/DeepIsoFun/blob/master/Layers/messenger.hpp) : Put these files into /caffe-master/include/caffe/ </br>
+Put these files in /caffe-master/src/caffe/layers/ </br>
+- [gradient_scaler_layer.hpp] (https://github.com/dls03/DeepIsoFun/blob/master/Layers/gradient_scaler_layer.hpp) : Put these files in /caffe-master/include/caffe/layers/</br>
+- [layer.hpp] (https://github.com/dls03/DeepIsoFun/blob/master/Layers/layer.hpp) : Put these files in /caffe-master/include/caffe/</br>
+- [messenger.hpp] (https://github.com/dls03/DeepIsoFun/blob/master/Layers/messenger.hpp) : Put these files in /caffe-master/include/caffe/ </br>
 
-#### Prerquired tools
+#### Required Supporting Systems
 - [CUDA](https://developer.nvidia.com/cuda-zone) </br> 
 - [OpenBLAS](http://www.openblas.net/) </br> 
 - [OpenCV](https://opencv.org/) </br> 
 - [Boost](https://www.boost.org/) </br> 
 - [Python and pycaffe](http://caffe.berkeleyvision.org/tutorial/interfaces.html) </br>  
 
-To Compile and test run these commands:
+To Compile and test DeepIsoFun, run the following commands:
 ```
 $ make all
 $ make test 
@@ -55,27 +55,27 @@ $ make runtest
 *Tips: Make sure you have included all the layers and compiled caffe successfully.*  
 
 ### Data
-- Expression profile of isoforms and genes.</br>
-	- [Isoform Expression Data] (https://drive.google.com/file/d/17H6xmKVQBGNMwvhS939ZXIFLoaBhNEbU/view?usp=sharing)
-	- [Gene Expression Data] (https://drive.google.com/file/d/16CRGsmvCttTR1ov0qwBxxiF-EKpcoSNl/view?usp=sharing)
-- ID Conversion 
-	- [Gene Isoform relations] (https://github.com/dls03/DeepIsoFun/blob/master/Data/GeneIsoformNameNew) 
-- Get GO annotation for gene. </br>
-	- [GO Annotation] (https://github.com/dls03/DeepIsoFun/blob/master/Data/GeneAnnoNewH)
-- Get Gene Ontology Hierarchy file to get parent-child relationship of GO terms. </br>
-	- [GO Hierarchy] (http://www.geneontology.org/ontology/go-basic.obo)
+- Expression profile of isoforms and genes</br>
+	- [Isoform expression data] (https://drive.google.com/file/d/17H6xmKVQBGNMwvhS939ZXIFLoaBhNEbU/view?usp=sharing)
+	- [Gene expression data] (https://drive.google.com/file/d/16CRGsmvCttTR1ov0qwBxxiF-EKpcoSNl/view?usp=sharing)
+- ID conversion 
+	- [Gene-isoform relationship data] (https://github.com/dls03/DeepIsoFun/blob/master/Data/GeneIsoformNameNew) 
+- GO annotation for genes </br>
+	- [GO annotation] (https://github.com/dls03/DeepIsoFun/blob/master/Data/GeneAnnoNewH)
+- Parent-child relationship among GO terms </br>
+	- [GO hierarchy] (http://www.geneontology.org/ontology/go-basic.obo)
 - GO set </br>
 	- [All GO] (https://github.com/dls03/DeepIsoFun/blob/master/Data/go_6up)
 	- [GO slim] (https://github.com/dls03/DeepIsoFun/blob/master/Data/goslim.txt)
 - SRA files 
 	- [Final set of SRA files] (https://github.com/dls03/DeepIsoFun/blob/master/Data/sra_filter_final.txt)
-- Data Preprocessing
-	- [Download SRA Read File] (https://github.com/dls03/DeepIsoFun/blob/master/Preprocessing%20Tools/dw_SRAdata.R)
+- Data preprocessing
+	- [Download SRA read file] (https://github.com/dls03/DeepIsoFun/blob/master/Preprocessing%20Tools/dw_SRAdata.R)
 	- [Run Kallisto to generate expression profile] (https://github.com/dls03/DeepIsoFun/blob/master/Preprocessing%20Tools/kalrun.R)
 	
 ### Run DeepIsoFun
 Run the script file `./runM.sh` (https://github.com/dls03/DeepIsoFun/tree/master/DeepIsoFun) </br>
-It will generate output prediction, AUC and AUPRC value for each GO term. (https://github.com/dls03/DeepIsoFun/blob/master/Results/go_auc_auprc_deepisofun.txt) 
+It will generate the prediction for all isoforms, the AUC and AUPRC values for each GO term. (https://github.com/dls03/DeepIsoFun/blob/master/Results/go_auc_auprc_deepisofun.txt) 
 
 
 
