@@ -9,7 +9,7 @@ Isoforms are mRNAs produced from the same gene locus by alternative splicing and
 
 #### Download
 Download the master branch of [Caffe](http://caffe.berkeleyvision.org/) and compile it on your machine. See here for the [installation](http://caffe.berkeleyvision.org/installation.html) guide. </br>  
-For some systems, the current version of caffe might not work. You can try an older [release](https://github.com/BVLC/caffe/releases).
+For some systems, the current version of Caffe might not work. You can try an older [release](https://github.com/BVLC/caffe/releases).
 
 #### Makefile Adjustment
 In the Makefile.config file:</br>
@@ -52,10 +52,10 @@ $ make test
 $ make runtest
 ```
 
-*Tips: Make sure you have included all the layers and compiled caffe successfully.*  
+*Tips: Make sure you have included all the layers and compiled Caffe successfully.*  
 
 ### Data
-- Expression profile of isoforms and genes</br>
+- Expression profiles of isoforms and genes</br>
 	- [Isoform expression data] (https://drive.google.com/file/d/17H6xmKVQBGNMwvhS939ZXIFLoaBhNEbU/view?usp=sharing)
 	- [Gene expression data] (https://drive.google.com/file/d/16CRGsmvCttTR1ov0qwBxxiF-EKpcoSNl/view?usp=sharing)
 - ID conversion 
