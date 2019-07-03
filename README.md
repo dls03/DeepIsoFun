@@ -55,9 +55,6 @@ $ make runtest
 *Tips: Make sure you have included all the layers and compiled Caffe successfully.*  
 
 ### Data
-- Expression profiles of isoforms and genes</br>
-	- [Isoform expression data] (https://drive.google.com/file/d/17H6xmKVQBGNMwvhS939ZXIFLoaBhNEbU/view?usp=sharing)
-	- [Gene expression data] (https://drive.google.com/file/d/16CRGsmvCttTR1ov0qwBxxiF-EKpcoSNl/view?usp=sharing)
 - ID conversion 
 	- [Gene-isoform relationship data] (https://github.com/dls03/DeepIsoFun/blob/master/Data/GeneIsoformNameNew) 
 - GO annotation for genes </br>
