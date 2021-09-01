@@ -78,6 +78,7 @@ It will generate the prediction for all isoforms, the AUC and AUPRC values for e
 ### Citation 
 If you find DeepIsoFun is useful for your research, please consider citing the following paper:
 
+```
 @article{shaw2019deepisofun,
   title={DeepIsoFun: a deep domain adaptation approach to predict isoform functions},
   author={Shaw, Dipan and Chen, Hao and Jiang, Tao},
@@ -88,3 +89,4 @@ If you find DeepIsoFun is useful for your research, please consider citing the f
   year={2019},
   publisher={Oxford University Press}
 }
+```
