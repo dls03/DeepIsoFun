@@ -29,7 +29,7 @@ Example: DeepIsoFun [Makefile.config]()
 #### Included Layers
 - [Gradient revarsal layer cpp](https://github.com/ddtm/caffe/blob/grl/src/caffe/layers/gradient_scaler_layer.cpp) and 
 [Gradient revarsal layer cpp](https://github.com/ddtm/caffe/blob/grl/src/caffe/layers/gradient_scaler_layer.cu).
- This layer is from the paper (Ganin et al. 2015)(http://proceedings.mlr.press/v37/ganin15.pdf) </br>
+(http://proceedings.mlr.press/v37/ganin15.pdf) </br>
 - [Multiple instance loss layer] (https://github.com/dls03/DeepIsoFun/blob/master/Layers/MIloss.py) </br>
 - [LSE loss layer] (https://github.com/dls03/DeepIsoFun/blob/master/Layers/LSEloss.py) </br>
 - [GM loss layer] (https://github.com/dls03/DeepIsoFun/blob/master/Layers/GMloss.py) </br>
@@ -75,5 +75,16 @@ Run the script file `./runM.sh` (https://github.com/dls03/DeepIsoFun/tree/master
 It will generate the prediction for all isoforms, the AUC and AUPRC values for each GO term. (https://github.com/dls03/DeepIsoFun/blob/master/Results/go_auc_auprc_deepisofun.txt) 
 
 
+### Citation 
+If you find DeepIsoFun is useful for your research, please consider citing the following paper:
 
-
+@article{shaw2019deepisofun,
+  title={DeepIsoFun: a deep domain adaptation approach to predict isoform functions},
+  author={Shaw, Dipan and Chen, Hao and Jiang, Tao},
+  journal={Bioinformatics},
+  volume={35},
+  number={15},
+  pages={2535--2544},
+  year={2019},
+  publisher={Oxford University Press}
+}
